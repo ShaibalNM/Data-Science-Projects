@@ -1,0 +1,66 @@
+#Python version
+import sys
+print("Python version: {}".format(sys.version))
+
+#SciPy
+import scipy
+print("SciPy version: {}".format(scipy.__version__))
+
+#numpy
+import numpy
+print("Numpy version: {}".format(numpy.__version__))
+
+#Matplotlib
+import matplotlib
+print('matplotlib: {}'.format(matplotlib.__version__))
+
+#Pandas
+import pandas
+print('pandas: {}'.format(pandas.__version__))
+
+#scikit-learn
+import sklearn
+print('sklearn: {}'.format(sklearn.__version__))
+
+#Import libraries from Pandas
+import pandas
+from pandas.plotting import scatter_matrix
+import matplotlib.pyplot as plt
+from sklearn import model_selection
+from sklearn.metrics import classification_report
+from sklearn.metrics import confusion_matrix
+from sklearn.metrics import accuracy_score
+from sklearn.linear_model import LogisticRegression
+from sklearn.tree import DecisionTreeClassifier
+from sklearn.neighbors import KNeighborsClassifier
+from sklearn.discriminant_analysis import LinearDiscriminantAnalysis
+from sklearn.naive_bayes import GaussianNB
+from sklearn.svm import SVC
+
+#Loading dataset
+url = 'http://web.stanford.edu/class/archive/cs/cs109/cs109.1166/stuff/titanic.csv'
+names = ['Survived_Indicator', 'Pclass','Name', 'Sex', 'Age', 'Siblings Aboard', 'Parents Aboard', 'Fare']
+titanic_db = pandas.read_csv(url, names = names)
+
+
+############### Data Visualization ################
+
+print(titanic_db.shape)
+print(titanic_db.head(20))
+print(titanic_db.describe())
+print(titanic_db.isnull().sum())
+print(titanic_db.info())
+
+###Increase Plot scatter_matrix
+fig_size = plt.rcParams["figure.figsize"]
+
+#Print current size
+print("Current size", fig_size)
+
+#Set figure width to 12 and size to 4
+fig_size[0] = 12
+fig_size[1] = 12
+plt.rcParams["figure.figsize"] = fig_size
+
+#Print new size
+print("New size: ", fig_size)
