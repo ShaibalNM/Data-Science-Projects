@@ -45,7 +45,32 @@ length(unique(loan_db$manufacturer_id))     #11 Unique Manufacturer IDs
 summary(loan_db$Current_pincode_ID)
 length(unique(loan_db$Current_pincode_ID))  #6659 Unique PIN codes
 
+summary(loan_db$State_ID)
+length(unique(loan_db$State_ID))            #22 Unique State IDs
 
+summary(loan_db$Employee_code_ID)
+length(unique(loan_db$Employee_code_ID))    #3269 Unique Employee IDs
+
+summary(loan_db$MobileNo_Avl_Flag)
+length(unique(loan_db$MobileNo_Avl_Flag))   #1 Unique MobileNo_Avl_Flag
+
+summary(loan_db$Aadhar_flag)
+length(unique(loan_db$Aadhar_flag))         #2 Unique Aadhar Flag values
+
+summary(loan_db$PAN_flag)
+length(unique(loan_db$PAN_flag))            #2 Unique PAN Flag values
+
+summary(loan_db$VoterID_flag)
+length(unique(loan_db$VoterID_flag))        #2 Unique Voter ID Flag values
+
+summary(loan_db$Driving_flag)
+length(unique(loan_db$Driving_flag))        #2 Unique Driving License Flag values
+
+summary(loan_db$Passport_flag)
+length(unique(loan_db$Passport_flag))       #2 Unique Passport License Flag values
+
+summary(loan_db$PERFORM_CNS.SCORE)
+str(loan_db$PERFORM_CNS.SCORE)
 
 #Converting Date columns to Date format
 
@@ -56,15 +81,15 @@ loan_db$DisbursalDate = as.Date(loan_db$DisbursalDate,format = "%d-%m-%Y")
 
 
 
-#Converting columns to factors
+#Converting Factors to Numeric
 summary(loan_db$Employment.Type)
 unique(loan_db$Employment.Type)
 table(loan_db$Employment.Type)
 levels(loan_db$Employment.Type) = c(1,0)  #Salaried = 1, Self Employed = 0
-levels(loan_db$Employment.Type) = as.numeric(levels(loan_db$Employment.Type))[levels(loan_db$Employment.Type)]
+loan_db$Employment.Type=as.numeric(levels(loan_db$Employment.Type))[loan_db$Employment.Type]
 
 
-
+################################
 unique(loan_db$branch_id)
 head(loan_db$loan_default)
 unique(loan_db$Employment.Type)
